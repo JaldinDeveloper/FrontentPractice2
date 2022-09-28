@@ -1,60 +1,55 @@
-const arrivalDate = document.getElementById("arrivalDate");
-const nights = document.getElementById("nights");
-const adults = document.getElementById("adults");
-
-const standard = document.getElementById("standard");
-const business = document.getElementById("business");
-const suite = document.getElementById("suite");
-
-const king = document.getElementById("king");
-const radio = document.getElementById("radio");
-const smoking = document.getElementById("smoking");
-
-const name = document.getElementById("name");
-const email = document.getElementById("email");
-const phone = document.getElementById("phone");
 
 const form = document.getElementById("reservationForm");
 const formElements = form.elements;
-const saveButton = document.getElementById("save");
+const clearButton = document.getElementById("clear");
 
-//const keyStorage = "aguanteBoca";
+const keyStorage = "aguanteBoca";
+const lengthId = 10;
+let dataArray = [];
 
-const formId = "save-later-form"; // ID of the form
-const url = location.href; //  href for the page
-const keyStorage = `${url} ${formId}`; // Identifier used to identify the form
-// saveButton.onclick = (event) => { 
+
+clearButton.onclick = (event) => { 
     
-//     console.log("Hola bro");
-// };
+    localStorage.setItem(keyStorage, [JSON.stringify([])]);
+};
+
+function metodo(){
+    let storaged = JSON.parse(localStorage.getItem(keyStorage));
+    storaged = storaged.findIndex((obj) => obj.id === "ssss");
+    storaged.splice(objWithIdIndex, 1);
+    localStorage.setItem(keyStorage, JSON.stringify(storaged));
+}
+
 
 form.onsubmit = (event) =>{
+    let storaged = JSON.parse(localStorage.getItem(keyStorage));
+    dataArray =  storaged == null ? []:storaged;
     data = getFormData();
-    //localStorage.setItem(keyStorage, JSON.stringify(data[keyStorage]));
-    localStorage.setItem(keyStorage, JSON.stringify
-        (
-        [
-            {
-                'hola': 'bno',
-                element
-            },
-            {
-                'hola': 'boca'
-            }
-        ])
+    const id = generateid();
+
+    dataArray.push({id: id, ...data});   
+    localStorage.setItem(keyStorage, JSON.stringify(dataArray)
     );
+}
+function generateid() {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < lengthId; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
 }
 
 const getFormData = () => {
-    let data = { [keyStorage]: {} };
+    // let data = { [keyStorage]: {} };
+    let data = {};
     for (const element of formElements) {
       if (element.name.length > 0) {
-        data[keyStorage][element.name] = element.value;
+        data[element.name] = element.value;
       }
     }
     return data;
 };
 
-function send(){
-
-}
