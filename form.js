@@ -65,6 +65,10 @@ const getFormData = () => {
 };
 function tableRefresh(){
     let stored = JSON.parse(localStorage.getItem(keyStorage));
+    if (stored == null){
+        localStorage.setItem(keyStorage, JSON.stringify([]));
+        stored = JSON.parse(localStorage.getItem(keyStorage));
+    }
     for ( let i = 0; i < stored.length; ++i) {
         let rowCount = table.rows.length;
         let row = table.insertRow(rowCount);
