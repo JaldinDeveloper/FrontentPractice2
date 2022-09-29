@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="https://logodownload.org/wp-content/uploads/2016/10/boca-juniors-logo-escudo-0.png">
+        <title>
+            Exercise 2
+        </title>
+    </head>
+    <body>
+        <header>
+            <h1>Exercise 2</h1>
+        </header>
+        <section>
+            <h2>Reservation Request</h2>
+            <form id="reservationForm" name="reservationForm">
+                <fieldset>
+                    <legend>General information</legend>
+                    <br>
+                    <label for="arrivalDate">Arrival Date: </label>
+                    <input type="date" name="arrivalDate" id="arrivalDate">
+                    <br><br>
+                    <label for="nights">Nights: </label>
+                    <input type="number" name="nights" id="nights">
+                    <br><br>
+                    <label for="adults">Adults: </label>
+                    <input type="number" name="adults" id="adults">
+                    <br><br>
+                    <label for="children">Children: </label>
+                    <input type="number" name="children" id="children">
+                    <br>
+                </fieldset>
+                <fieldset>
+                    <legend>Preferences</legend>
+                    <label>Room type: </label>
+
+                    <label for="standard">Standard</label>
+                    <input type="radio" id="standard" name="room" value="Standard">
+
+                    <label for="business">Business</label>
+                    <input type="radio" id="business" name="room" value="Business">
+                    
+                    <label for="suite">Business</label>
+                    <input type="radio" id="suite" name="room" value="Suite">
+                    
+                    <br>
+                    <label>Bed type: </label>
+
+                    <input type="radio" id="king" name="bed" value="King">
+                    <label for="king">King</label>
+                    
+                    <input type="radio" id="double" name="bed" value="double">
+                    <label for="double">Double</label>
+                    <br>
+                    <input type="checkbox" id="smoking" value="smoking">
+                    <label for="smoking">Smoking</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Contact information</legend>
+                    <br>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" required>
+                    <br><br>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email">
+                    <br><br>
+                    <label for="phone">Phone: </label>
+                    <input type="text" name="phone" id="phone">
+                    <br><br>
+                </fieldset>
+                <br>
+                <button type="submit" id="save">
+                    Submit Reservation
+                </button>
+            </form>
+            <button id="clear">Clear</button>
+        </section>
+        <br><br><br><br><br>
+        <table id="table" style="text-align:center"  border="2" >
+            <tr>
+                <th colspan="4">General Information</th>
+                <th colspan="3">Preferences</th>
+                <th colspan="3">Contact Information</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <th>Arrival Date</th>
+                <th>Nights</th>
+                <th>Adults</th>
+                <th>Children</th>
+                <th>Room Type</th>
+                <th>Bed Type</th>
+                <th>Smoking</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th></th>
+            </tr>
+        <tr>
+        </table>
+    </body>
+    <script src="form.js"></script>
+</html>
