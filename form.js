@@ -46,12 +46,14 @@ function deleteRow(r) {
 }
 
 function removeRow(id, r) {
-    let stored = JSON.parse(localStorage.getItem(keyStorage));
-    let storedId = stored.findIndex((obj) => obj.id === id);
-    console.log(stored);
-    stored.splice(storedId, 1);
-    localStorage.setItem(keyStorage, JSON.stringify(stored));
-    deleteRow(r);
+    if (confirm("Are you sure you want to delete this row?")){
+        let stored = JSON.parse(localStorage.getItem(keyStorage));
+        let storedId = stored.findIndex((obj) => obj.id === id);
+        console.log(stored);
+        stored.splice(storedId, 1);
+        localStorage.setItem(keyStorage, JSON.stringify(stored));
+        deleteRow(r);
+    }
 }
 
 const getFormData = () => {
